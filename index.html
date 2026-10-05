@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Playlist Notes</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <div class="container">
+        <h1 id="playlist-title">Playlist Notes</h1>
+        <p id="playlist-description" class="description"></p>
+        <dl class="playlist-meta" aria-label="Playlist metadata">
+          <div>
+            <dt>Curator</dt>
+            <dd id="playlist-curator"></dd>
+          </div>
+          <div>
+            <dt>Last updated</dt>
+            <dd id="playlist-updated"></dd>
+          </div>
+          <div>
+            <dt>Total songs</dt>
+            <dd id="playlist-count"></dd>
+          </div>
+        </dl>
+      </div>
+    </header>
+
+    <main id="main" class="container">
+      <section class="controls" aria-label="Filter songs">
+        <label for="song-search">Search songs</label>
+        <input
+          id="song-search"
+          name="song-search"
+          type="search"
+          placeholder="Search by title, artist, album/year, tags, or notes"
+          autocomplete="off"
+        />
+        <p class="hint">Tip: use the tag buttons to quickly filter songs by mood or theme.</p>
+        <div id="tag-filters" class="tag-filters" role="group" aria-label="Tag filters"></div>
+      </section>
+
+      <section aria-live="polite" aria-atomic="true">
+        <p id="result-count" class="result-count"></p>
+      </section>
+
+      <section id="songs" class="songs" aria-label="Songs and notes"></section>
+    </main>
+
+    <template id="song-template">
+      <article class="song-entry">
+        <details>
+          <summary>
+            <span class="song-title"></span>
+            <span class="song-meta"></span>
+          </summary>
+          <div class="song-body">
+            <p class="song-extra"></p>
+            <ul class="song-tags" aria-label="Tags"></ul>
+            <section>
+              <h3>Context</h3>
+              <p class="song-context"></p>
+            </section>
+            <section>
+              <h3>Lyrics or musical observations</h3>
+              <p class="song-lyrics"></p>
+            </section>
+            <section>
+              <h3>Personal notes</h3>
+              <p class="song-personal"></p>
+            </section>
+          </div>
+        </details>
+      </article>
+    </template>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
